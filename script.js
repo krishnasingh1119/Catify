@@ -1,8 +1,6 @@
-console.log("hello");
-
 let currentsong = new Audio()
 let songLink = [];
-songTitle = [];
+let songTitle = [];
 
 let currentFolder;
 
@@ -107,10 +105,13 @@ async function LoadAlbums() {
 
       playAudio(songLink[0], false)
 
-
+      let MenuButton = document.querySelector(".library-section")
+      MenuButton.style.left = "0px"
 
     })
   })
+
+
 }
 
 
@@ -174,7 +175,7 @@ document.querySelector(".library-section .menu").addEventListener("click", (e) =
 
 // adding previour funtionality
 previous.addEventListener("click", () => {
-  let index = songLink.indexOf(currentsong.src)
+  let index = songLink.indexOf(currentsong.getAttribute("src"))
   if (index > 0) {
     playAudio(songLink[index - 1], false)
     document.querySelector(".current-song-name").innerHTML = songTitle[index - 1]
@@ -188,8 +189,8 @@ previous.addEventListener("click", () => {
 })
 
 // addind next funtion
-next.addEventListener("click", () => {
-  let index = songLink.indexOf(currentsong.src)
+next.addEventListener("click", () => { 
+  let index = songLink.indexOf(currentsong.getAttribute("src"))
   if (index < songLink.length - 1) {
     playAudio(songLink[index + 1], false)
     document.querySelector(".current-song-name").innerHTML = songTitle[index + 1]
@@ -229,7 +230,7 @@ volumeBar.addEventListener("change", (e) => {
 
 // Automatically play next song when current one ends
 currentsong.addEventListener("ended", () => {
-  let index = songLink.indexOf(currentsong.src);
+  let index = songLink.indexOf(currentsong.getAttribute("src"));
 
   if (index < songLink.length - 1) {
 
@@ -250,5 +251,3 @@ currentsong.addEventListener("ended", () => {
   }
 });
 
-
-console.log('end');

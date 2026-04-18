@@ -4,11 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color: #000;
     margin: 0;
     padding: 0px 10px 0 10px;
-    
+
     position: relative;
 }
 
@@ -17,6 +18,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 .nav-bar {
     display: flex;
     flex-direction: row;
@@ -89,8 +91,8 @@ body {
 }
 
 .main {
- display: flex;
- gap: 8px;
+    display: flex;
+    gap: 8px;
 
 }
 
@@ -99,7 +101,7 @@ body {
     background-color: rgb(18, 18, 18);
     border-radius: 8px;
     height: calc(100vh - 140px);
-     /* height: 80vh; */
+    /* height: 80vh; */
 }
 
 .playlist-section {
@@ -112,14 +114,14 @@ body {
     /* padding-right: 20px; */
     padding: 10px;
     overflow-y: auto;
-   
+
 
 }
 
 .library-section {
     width: 30vw;
     padding: 10px;
-} 
+}
 
 .heading {
     display: flex;
@@ -139,6 +141,27 @@ body {
     margin-left: 5px;
 }
 
+.library-section .heading button {
+    border: none;
+    background-color: #fff;
+    padding: 4px 6px;
+}
+
+.library-section .filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.library-section .filter button {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 2px;
+    background-color: #505050;
+}
+
 .menu {
     height: 30px;
     display: none;
@@ -149,7 +172,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    
+
 }
 
 
@@ -216,10 +239,11 @@ body {
 }
 
 .top-footer {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     /* width: 100%; */
 }
+
 .top-footer .links {
     display: flex;
     /* justify-content: space-between; */
@@ -266,6 +290,7 @@ p {
     /* justify-content: space-between; */
     /* width: 10vw; */
     gap: 10px;
+    margin-bottom: 10px;
 }
 
 .top-footer .social-links img {
@@ -303,11 +328,12 @@ p {
 .bottom-footer .leagal-info a:hover {
     color: #fff;
 }
-.footer-section hr {
-    border: none;
+
+.footer-section .line {
+    width: 100%;
     height: 1px;
     background-color: #292929;
-    width: 100%;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
@@ -424,12 +450,12 @@ p {
 .song-list ul .info div div:first-child {
     width: 160px;
     overflow: hidden;
-} 
+}
 
 .song-list ul .info div div:first-child p {
     white-space: nowrap;
     display: inline-block;
-    animation: scroll-text ;
+    animation: scroll-text;
 }
 
 
@@ -455,6 +481,7 @@ p {
     width: 70px;
 
 }
+
 /* lets work on responsiveness */
 
 @media (max-width: 1200px) {
@@ -468,8 +495,9 @@ p {
         transition: all 0.5s;
 
     }
+
     .song-list {
-    height: calc(100% - 100px);
+        height: calc(100% - 100px);
     }
 
     #play-button {
@@ -479,15 +507,16 @@ p {
     .song-list ul span img {
         padding: 0px 5px;
     }
+
     .song-list ul .info div div:first-child {
-    width: 230px;
+        width: 230px;
     }
+
     .playlist-section {
         width: 100vw;
     }
 
-    .menu {
-        
+    .menu { 
         display: block;
         margin-bottom: 5px;
     }
@@ -509,7 +538,8 @@ p {
     }
 
     .top-footer .links {
-        flex-wrap: wrap; /* Allows links to move to the next line */
+        flex-wrap: wrap;
+        /* Allows links to move to the next line */
         gap: 20px;
     }
 
@@ -536,9 +566,11 @@ p {
     .play-bar .left-section {
         width: 100%;
     }
+
     .play-bar .center-section .duration-bar {
         margin-top: 10px;
-        width: 98vw; /* Make the seek bar wider on mobile */
+        width: 98vw;
+        /* Make the seek bar wider on mobile */
     }
 
     .play-bar .right-section {
@@ -546,23 +578,25 @@ p {
         top: 20px;
         right: 20px;
     }
+
     .play-bar .current-duration {
         position: absolute;
         bottom: 20px;
         left: 10px;
     }
+
     .play-bar .total-duration {
         position: absolute;
         bottom: 20px;
         right: 10px;
     }
-    
+
 }
 
 
 
 @media (max-width: 500px) {
-        .play-bar .right-section {
+    .play-bar .right-section {
         position: absolute;
         top: 70px;
         right: 20px;
@@ -572,13 +606,13 @@ p {
         gap: 40px;
     }
 
-   .catify-playlist {
-    flex-direction: column;
-    gap: 10px;
-   }
-   
-   .playlist-card {
-    width: 100%;
-   }
-    
+    .catify-playlist {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .playlist-card {
+        width: 100%;
+    }
+
 }
