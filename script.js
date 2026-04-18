@@ -28,7 +28,7 @@ async function getsong(folder) {
   songTitle = [];
 
   songsInFolder.forEach(song => {
-    let url = `/songs/${folder}/${song.file}`;
+    let url = `./songs/${folder}/${song.file}`;
     songLink.push(url);
     songTitle.push(song.title);
 
@@ -94,7 +94,7 @@ async function LoadAlbums() {
                                 d="M5.25 5.78987C5.25 4.42081 6.7512 3.58195 7.91717 4.29947L18.0091 10.5099C19.1196 11.1933 19.1196 12.8074 18.0091 13.4907L7.91717 19.7011C6.7512 20.4187 5.25 19.5798 5.25 18.2107V5.78987Z"
                                 fill="currentColor" />
                         </svg> </button>
-          <img src="songs/${folder}/cover.png" alt="">
+          <img src="./songs/${folder}/cover.png" alt="">
           <p class="playlist-name">${info.title}</p>
           <p class="playlist-artist">${info.discription}</p>
       </div>`;
