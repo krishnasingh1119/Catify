@@ -18,7 +18,7 @@ function formatTime(seconds) {
 
 
 async function getsong(folder) {
- let req = await fetch("songs.json");
+ let req = await fetch("./songs.json");
   let data = await req.json();
   let songsInFolder = data.songs[folder]; // Get songs for this specific folder
 
@@ -75,7 +75,7 @@ function playAudio(track, pause = true) {
 
 // functions to display dynamic albums direct from the folder
 async function LoadAlbums() {
-  let req = await fetch("songs.json");
+  let req = await fetch("./songs.json");
   let data = await req.json();
   
   let CardConatiner = document.querySelector(".catify-playlist");
@@ -83,7 +83,7 @@ async function LoadAlbums() {
 
   for (const folder of data.folders) {
     // Fetch info.json for each folder as you were doing
-    let infoReq = await fetch(`/songs/${folder}/info.json`);
+    let infoReq = await fetch(`./songs/${folder}/info.json`);
     let info = await infoReq.json();
 
     CardConatiner.innerHTML += `
