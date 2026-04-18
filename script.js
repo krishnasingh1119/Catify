@@ -18,7 +18,7 @@ function formatTime(seconds) {
 
 
 async function getsong(folder) {
-  let songs = await fetch(`http://127.0.0.1:5500/songs/${folder}/`)
+  let songs = await fetch(`/songs/${folder}/`)
   let response = await songs.text()
   let div = document.createElement('div')
   div.innerHTML = response
@@ -90,7 +90,7 @@ function playAudio(track, pause = true) {
 
 // functions to display dynamic albums direct from the folder
 async function LoadAlbums() {
-  let songs = await fetch(`http://127.0.0.1:5500/songs/`)
+  let songs = await fetch(`/songs/`)
   let response = await songs.text()
   let div = document.createElement('div')
   div.innerHTML = response
@@ -105,7 +105,7 @@ async function LoadAlbums() {
     if (e.href.includes("/songs/")) {
       let folder = e.href.split('/').slice(-1)[0].replace("%20", " ")
 
-      let songs = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
+      let songs = await fetch(`/songs/${folder}/info.json`)
       let info = await songs.json()
 
 
