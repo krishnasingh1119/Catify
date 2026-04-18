@@ -1,0 +1,584 @@
+* {
+    font-family: roboto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0px 10px 0 10px;
+    
+    position: relative;
+}
+
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.logo-name-section,
+.home-search-section,
+.login-singin-profile-section,
+.search-box {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.logo-name-section .logo {
+    width: 50px;
+}
+
+.logo-name-section a {
+    font-family: roboto;
+    font-size: 30px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #fff;
+    background: transparent;
+}
+
+
+.search-box {
+    padding: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(45, 45, 45);
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 50px;
+}
+
+.search-box img {
+    padding-right: 5px;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    color: #b3b3b3;
+
+}
+
+.search-box input::placeholder {
+    color: #b3b3b3;
+}
+
+.login-singin-profile-section button {
+    font-weight: 500;
+    border: 0;
+    border-radius: 30px;
+    padding: 4px 20px;
+    color: black;
+    font-size: 20px;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.main {
+ display: flex;
+ gap: 8px;
+
+}
+
+.library-section,
+.playlist-section {
+    background-color: rgb(18, 18, 18);
+    border-radius: 8px;
+    height: calc(100vh - 140px);
+     /* height: 80vh; */
+}
+
+.playlist-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    min-height: calc(100vh - 140px);
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    padding: 10px;
+    overflow-y: auto;
+   
+
+}
+
+.library-section {
+    width: 30vw;
+    padding: 10px;
+} 
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.heading div {
+    display: flex;
+    align-items: center;
+}
+
+.heading h2 {
+    font-size: 15px;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.menu {
+    height: 30px;
+    display: none;
+
+}
+
+.catify-playlist {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    
+}
+
+
+.playlist-card {
+    position: relative;
+    padding: 10px;
+    width: 190px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.playlist-card:hover {
+    background-color: #222222;
+}
+
+.playlist-card:hover button {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.playlist-card button {
+    position: absolute;
+    right: 20px;
+    top: 135px;
+    background-color: green;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s ease-in-out;
+}
+
+.playlist-card button:hover {
+    background-color: rgb(18, 154, 18);
+}
+
+.playlist-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin-bottom: 7px;
+    border-radius: 10px;
+}
+
+.playlist-card .playlist-name {
+    margin-bottom: 7px;
+}
+
+.playlist-card .playlist-artist {
+    color: gray;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.footer-section {
+    width: calc(100% - 10px);
+    bottom: 0;
+    /* position: absolute; */
+    margin-bottom: 20px;
+}
+
+.top-footer {
+    display: flex; 
+    justify-content: space-between;
+    /* width: 100%; */
+}
+.top-footer .links {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 10px;
+    align-items: flex-start;
+    /* width: 45vw; */
+    /* margin-right: 20px; */
+    margin-bottom: 20px;
+
+}
+
+
+
+.top-footer .links li {
+    list-style: none;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+
+.top-footer .links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.top-footer .links a,
+p {
+    text-decoration: none;
+    color: #fff;
+}
+
+.top-footer .links a {
+    display: block;
+    color: grey;
+}
+
+.top-footer .links p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.top-footer .social-links {
+    display: flex;
+    /* justify-content: space-between; */
+    /* width: 10vw; */
+    gap: 10px;
+}
+
+.top-footer .social-links img {
+    display: block;
+    max-width: 100%;
+    height: 40px;
+    width: 40px;
+    background-color: #1f1f1f;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.top-footer .social-links img:hover {
+    background-color: rgb(130, 130, 130);
+}
+
+.bottom-footer {
+    /* width: 100%; */
+    justify-content: space-between;
+    display: flex;
+}
+
+.bottom-footer .leagal-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.bottom-footer .leagal-info a {
+    text-decoration: none;
+    color: grey;
+}
+
+.bottom-footer .leagal-info a:hover {
+    color: #fff;
+}
+.footer-section hr {
+    border: none;
+    height: 1px;
+    background-color: #292929;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.play-bar {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background-color: #000;
+    padding: 5px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+}
+
+.play-bar .left-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.play-bar .left-section img {
+    /* height: 40px; */
+    background-color: rgb(45, 45, 45);
+    padding: 15px;
+    border-radius: 3px;
+
+}
+
+.play-bar .left-section div div:nth-child(2) {
+    color: rgb(130, 130, 130);
+    font-size: 13px;
+}
+
+.center-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.play-bar .control-button {
+    display: flex;
+    gap: 20px;
+}
+
+.play-bar .center-section img {
+    cursor: pointer;
+
+}
+
+.play-bar .center-section .duration-info {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.play-bar .center-section .duration-bar {
+    height: 4px;
+    width: 40vw;
+    border-radius: 1px;
+    background-color: rgb(130, 130, 130);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-bar .center-section .duration-bar .current-duration-bar {
+    height: 6px;
+    width: 0%;
+    background-color: rgb(83, 193, 83);
+}
+
+
+.play-bar .right-section {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.play-bar .right-section #volume {
+    cursor: pointer;
+}
+
+.song-list {
+    height: calc(100% - 65px);
+    overflow: auto;
+}
+
+.song-list ul li {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(45, 45, 45);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.song-list ul .info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.song-list ul .info div div:first-child {
+    width: 160px;
+    overflow: hidden;
+} 
+
+.song-list ul .info div div:first-child p {
+    white-space: nowrap;
+    display: inline-block;
+    animation: scroll-text ;
+}
+
+
+
+.song-list ul .info div div:nth-child(2) {
+    color: gray;
+    font-size: 12px;
+}
+
+
+.song-list ul span {
+    border-radius: 5px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(83, 193, 83);
+    padding: 5px 3px 5px 5px;
+    cursor: pointer;
+}
+
+#play-button {
+    width: 70px;
+
+}
+/* lets work on responsiveness */
+
+@media (max-width: 1200px) {
+    .library-section {
+        /* height: 100%; */
+        background-color: rgb(18, 18, 18);
+        width: 344px;
+        position: absolute;
+        z-index: 10;
+        left: -120%;
+        transition: all 0.5s;
+
+    }
+    .song-list {
+    height: calc(100% - 100px);
+    }
+
+    #play-button {
+        display: none;
+    }
+
+    .song-list ul span img {
+        padding: 0px 5px;
+    }
+    .song-list ul .info div div:first-child {
+    width: 230px;
+    }
+    .playlist-section {
+        width: 100vw;
+    }
+
+    .menu {
+        
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 700px) {
+    .library-section {
+        height: calc(100vh - 183px)
+    }
+
+    .nav-bar .logo-name-section a {
+        display: none;
+    }
+
+    /* Stack the footer columns vertically */
+    .top-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .top-footer .links {
+        flex-wrap: wrap; /* Allows links to move to the next line */
+        gap: 20px;
+    }
+
+    /* Stack the legal info (Privacy, Cookies, etc.) */
+    .bottom-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .bottom-footer .leagal-info {
+        flex-wrap: wrap;
+    }
+
+    /* Adjust the play-bar for small screens */
+    .play-bar {
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        /* position: relative; */
+    }
+
+    .play-bar .left-section {
+        width: 100%;
+    }
+    .play-bar .center-section .duration-bar {
+        margin-top: 10px;
+        width: 98vw; /* Make the seek bar wider on mobile */
+    }
+
+    .play-bar .right-section {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    .play-bar .current-duration {
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+    }
+    .play-bar .total-duration {
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+    }
+    
+}
+
+
+
+@media (max-width: 500px) {
+        .play-bar .right-section {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+    }
+
+    .play-bar {
+        gap: 40px;
+    }
+
+   .catify-playlist {
+    flex-direction: column;
+    gap: 10px;
+   }
+   
+   .playlist-card {
+    width: 100%;
+   }
+    
+}
