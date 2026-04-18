@@ -1,0 +1,103 @@
+{
+    "folders": [
+        "Guru",
+        "Karan Aujla",
+        "singga"
+    ],
+    "songs": {
+        "Guru": [
+            {
+                "title": "Downtown",
+                "file": "Downtown - Guru Randhawa(MyMp3Singer).mp3"
+            },
+            {
+                "title": "Ishq Tera",
+                "file": "Ishq Tera - Guru Randhawa.mp3"
+            },
+            {
+                "title": "Lagdi Lahore Di",
+                "file": "Lagdi Lahore Di - Street Dancer 3D.mp3"
+            },
+            {
+                "title": "Mehendi Wale Haath",
+                "file": "Mehendi Wale Haath - Guru Randhawa.mp3"
+            },
+            {
+                "title": "Mueve La Cintura Pitbull",
+                "file": "Mueve La Cintura Pitbull Guru Randhawa - HDYaar.Com.mp3"
+            }
+        ],
+        "Karan Aujla": [
+            {
+                "title": "Adhiya Original",
+                "file": "Adhiya Original copy.mp3"
+            },
+            {
+                "title": "Chithiyaan",
+                "file": "Chithiyaan copy.mp3"
+            },
+            {
+                "title": "Chitta Kurta",
+                "file": "Chitta-Kurta-Original-Karan-Aujla-Gurlez-Akhtar copy.mp3"
+            },
+            {
+                "title": "Dont Look",
+                "file": "Dont Look - Karan Aujla copy.mp3"
+            },
+            {
+                "title": "Dont Worry",
+                "file": "Dont Worry copy.mp3"
+            },
+            {
+                "title": "Facts",
+                "file": "Facts (RaagJatt.com) copy.mp3"
+            },
+            {
+                "title": "Haan Haige Aa",
+                "file": "Haan Haige Aa Karan Aujla - HDYaar.Com copy.mp3"
+            },
+            {
+                "title": "Hair",
+                "file": "Hair Karan Aujla (SongsMp3.Com) copy.mp3"
+            },
+            {
+                "title": "Hint",
+                "file": "Hint - Songs.pk - 128Kbps copy.mp3"
+            },
+            {
+                "title": "Hukam Original",
+                "file": "Hukam Original copy.mp3"
+            },
+            {
+                "title": "Ink",
+                "file": "Ink-Karan-Aujla copy.mp3"
+            }
+        ],
+        "singga": [
+            {
+                "title": "Blackia Meets Singga",
+                "file": "Blackia Meets Singga - Singga.mp3"
+            },
+            {
+                "title": "Compete Singga",
+                "file": "Compete Singga - HDYaar.Com.mp3"
+            },
+            {
+                "title": "Photo",
+                "file": "Photo-(Mr-Jatt.com).mp3"
+            },
+            {
+                "title": "Sheh",
+                "file": "Sheh - Singga.mp3"
+            },
+            {
+                "title": "Sheh 2",
+                "file": "Sheh 2 - Singga.mp3"
+            },
+            {
+                "title": "SHO Singga",
+                "file": "SHO Singga - HDYaar.Com.mp3"
+            }
+        ]
+    }
+}

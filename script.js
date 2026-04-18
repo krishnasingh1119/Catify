@@ -18,47 +18,32 @@ function formatTime(seconds) {
 
 
 async function getsong(folder) {
-  let songs = await fetch(`/songs/${folder}/`)
-  let response = await songs.text()
-  let div = document.createElement('div')
-  div.innerHTML = response
-  let tds = div.getElementsByTagName('a')
+ let req = await fetch("songs.json");
+  let data = await req.json();
+  let songsInFolder = data.songs[folder]; // Get songs for this specific folder
 
-  let songul = document.querySelector('.song-list').getElementsByTagName('ul')[0]
-  songul.innerHTML = ''
+  let songul = document.querySelector('.song-list').getElementsByTagName('ul')[0];
+  songul.innerHTML = '';
+  songLink = [];
+  songTitle = [];
 
-  songLink = []
-  songTitle = []
-  let songPack = [songLink, songTitle]
-  for (let index = 0; index < tds.length; index++) {
-    const element = tds[index];
-    if (element.href.endsWith(".mp3")) {
-      songLink.push(element.href)
-    }
-    if (element.title.endsWith(".mp3")) {
-      songTitle.push(element.title.slice(0, -4))
+  songsInFolder.forEach(song => {
+    let url = `/songs/${folder}/${song.file}`;
+    songLink.push(url);
+    songTitle.push(song.title);
 
-      let songName = element.title.slice(0, -4).replace("-", " ")
-
-      songul.innerHTML = songul.innerHTML + `
-               <li data-url="${element.href}">
-            <div class="info">
-              <img src="utilities/music.svg" alt="">
-              <div>
-                <div><p class="song-name">${songName}</p></div>
-                <div>Krishna</div>
-              </div>
-            </div>
-            <span>
-              <div id="play-button"> Play Now </div>
-              <img src="utilities/play.svg" alt="">
-            </span>
-          </li>
-             `
-    }
-
-  }
-
+    songul.innerHTML += `
+      <li data-url="${url}">
+        <div class="info">
+          <img src="utilities/music.svg" alt="">
+          <div>
+            <div class="song-name">${song.title}</div>
+            <div>Artist</div>
+          </div>
+        </div>
+        <span><div id="play-button">Play Now</div><img src="utilities/play.svg"></span>
+      </li>`;
+  });
   Array.from(document.querySelector(".song-list").getElementsByTagName("li")).forEach((e) => {
     e.addEventListener("click", element => {
       playAudio(e.dataset.url, false)
@@ -83,58 +68,47 @@ function playAudio(track, pause = true) {
     currentsong.play();
     play.src = "utilities/pause.svg"
   }
-  else{
+  else {
     play.src = "utilities/play.svg"
   }
 }
 
 // functions to display dynamic albums direct from the folder
 async function LoadAlbums() {
-  let songs = await fetch(`/songs/`)
-  let response = await songs.text()
-  let div = document.createElement('div')
-  div.innerHTML = response
+  let req = await fetch("songs.json");
+  let data = await req.json();
+  
+  let CardConatiner = document.querySelector(".catify-playlist");
+  CardConatiner.innerHTML = ""; // Clear existing
 
-  let CardConatiner = document.querySelector(".catify-playlist")
+  for (const folder of data.folders) {
+    // Fetch info.json for each folder as you were doing
+    let infoReq = await fetch(`/songs/${folder}/info.json`);
+    let info = await infoReq.json();
 
-  let anchor = div.getElementsByTagName("a")
-  let array = Array.from(anchor)
-
-  for (let index = 0; index < array.length; index++) {
-    const e = array[index];
-    if (e.href.includes("/songs/")) {
-      let folder = e.href.split('/').slice(-1)[0].replace("%20", " ")
-
-      let songs = await fetch(`/songs/${folder}/info.json`)
-      let info = await songs.json()
-
-
-      CardConatiner.innerHTML += `
-        <div data-folder="${folder}" class="playlist-card">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000"
+    CardConatiner.innerHTML += `
+      <div data-folder="${folder}" class="playlist-card">
+          <button> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000"
                             fill="#000">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M5.25 5.78987C5.25 4.42081 6.7512 3.58195 7.91717 4.29947L18.0091 10.5099C19.1196 11.1933 19.1196 12.8074 18.0091 13.4907L7.91717 19.7011C6.7512 20.4187 5.25 19.5798 5.25 18.2107V5.78987Z"
                                 fill="currentColor" />
-                        </svg>
-                    </button>
-                    <img src="songs/${folder}/cover.png" alt="">
-                    <p class="playlist-name">${info.title}</p>
-                    <p class="playlist-artist">${info.discription}</p>
-                </div>
-      `
-    }
+                        </svg> </button>
+          <img src="songs/${folder}/cover.png" alt="">
+          <p class="playlist-name">${info.title}</p>
+          <p class="playlist-artist">${info.discription}</p>
+      </div>`;
   }
+
   Array.from(document.getElementsByClassName("playlist-card")).forEach((element) => {
     element.addEventListener("click", async (item) => {
       ({ songLink, songTitle } = await getsong(item.currentTarget.dataset.folder))
       document.querySelector(".current-song-name").innerHTML = songTitle[0]
 
-    playAudio(songLink[0], false)
+      playAudio(songLink[0], false)
 
-    
-    
+
+
     })
   })
 }
@@ -228,8 +202,8 @@ next.addEventListener("click", () => {
 })
 
 
-volume.addEventListener("click",(e) => {
-  if(volumeBar.value == 0){
+volume.addEventListener("click", (e) => {
+  if (volumeBar.value == 0) {
     volume.src = "utilities/volume.svg"
     volumeBar.value = 10
     currentsong.volume = 0.1
@@ -243,10 +217,10 @@ volume.addEventListener("click",(e) => {
 
 volumeBar.addEventListener("change", (e) => {
   currentsong.volume = e.target.value / 100
-  if(e.currentTarget.value == 0) {
+  if (e.currentTarget.value == 0) {
     volume.src = "utilities/mute.svg"
   }
-  else{
+  else {
     volume.src = "utilities/volume.svg"
   }
 })
@@ -255,25 +229,25 @@ volumeBar.addEventListener("change", (e) => {
 
 // Automatically play next song when current one ends
 currentsong.addEventListener("ended", () => {
-    let index = songLink.indexOf(currentsong.src);
+  let index = songLink.indexOf(currentsong.src);
 
-    if (index < songLink.length - 1) {
+  if (index < songLink.length - 1) {
 
-        playAudio(songLink[index + 1], false);
-        document.querySelector(".current-song-name").innerHTML = songTitle[index + 1];
-    } 
-    else {
-    
-        playAudio(songLink[0], true);
-        document.querySelector(".current-song-name").innerHTML = songTitle[0];
+    playAudio(songLink[index + 1], false);
+    document.querySelector(".current-song-name").innerHTML = songTitle[index + 1];
+  }
+  else {
 
-        currentsong.currentTime = 0; 
-        document.querySelector(".current-duration-bar").style.width = "0%";
-        document.querySelector(".current-duration").innerHTML = "01:09";
-        
-        // Use this if you want it to just stop at the end instead:
-        // play.src = "utilities/play.svg";
-    }
+    playAudio(songLink[0], true);
+    document.querySelector(".current-song-name").innerHTML = songTitle[0];
+
+    currentsong.currentTime = 0;
+    document.querySelector(".current-duration-bar").style.width = "0%";
+    document.querySelector(".current-duration").innerHTML = "01:09";
+
+    // Use this if you want it to just stop at the end instead:
+    // play.src = "utilities/play.svg";
+  }
 });
 
 
